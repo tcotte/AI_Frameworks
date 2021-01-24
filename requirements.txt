@@ -1,84 +1,84 @@
-absl-py @ file:///tmp/build/80754af9/absl-py_1607439979954/work
-aiohttp @ file:///C:/ci/aiohttp_1607109697839/work
+absl-py
+aiohttp
 astunparse==1.6.3
 async-timeout==3.0.1
-attrs @ file:///tmp/build/80754af9/attrs_1604765588209/work
+attrs
 blinker==1.4
 boto3==1.16.59
 botocore==1.19.59
 brotlipy==0.7.0
-cachetools @ file:///tmp/build/80754af9/cachetools_1607706694405/work
+cachetools
 certifi==2019.11.28
-cffi @ file:///C:/ci/cffi_1606255208697/work
+cffi
 chardet==3.0.4
-click @ file:///home/linux1/recipes/ci/click_1610990599742/work
+click
 cryptography==2.9.2
 decorator==4.4.1
 defusedxml==0.6.0
-gast @ file:///tmp/build/80754af9/gast_1597433534803/work
-google-auth @ file:///tmp/build/80754af9/google-auth_1607969906642/work
-google-auth-oauthlib @ file:///tmp/build/80754af9/google-auth-oauthlib_1603929124518/work
+gast
+google-auth
+google-auth-oauthlib
 google-pasta==0.2.0
 graphviz==0.8.4
-grpcio @ file:///C:/ci/grpcio_1597406462198/work
+grpcio
 h5py==2.10.0
 idna==2.6
-imbalanced-learn @ file:///home/conda/feedstock_root/build_artifacts/imbalanced-learn_1592145894352/work
-importlib-metadata @ file:///tmp/build/80754af9/importlib-metadata_1602276842396/work
+imbalanced-learn
+importlib-metadata
 jmespath==0.10.0
-joblib @ file:///tmp/build/80754af9/joblib_1607970656719/work
-Keras @ file:///tmp/build/80754af9/keras_split_1593112142734/work
-Keras-Applications @ file:///tmp/build/80754af9/keras-applications_1594366238411/work
+joblib
+Keras
+Keras-Applications
 Keras-Preprocessing==1.1.0
-Markdown @ file:///C:/ci/markdown_1605111189761/work
+Markdown
 mkl-fft==1.2.0
 mkl-random==1.1.1
 mkl-service==2.3.0
-multidict @ file:///C:/ci/multidict_1600456481656/work
+multidict
 mxnet==1.3.1
 networkx==2.3
-nltk @ file:///tmp/build/80754af9/nltk_1592496090529/work
+nltk
 numpy==1.18.1
 oauthlib==3.1.0
 olefile==0.46
 opt-einsum==3.1.0
-pandas @ file:///C:/ci/pandas_1611171485393/work
-Pillow @ file:///C:/ci/pillow_1609786840597/work
+pandas
+Pillow
 protobuf==3.6.1
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
-pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
-PyJWT @ file:///C:/ci/pyjwt_1610893382614/work
-pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1608057966937/work
+pycparser
+PyJWT
+pyOpenSSL
 pyreadline==2.1
-PySocks @ file:///C:/ci/pysocks_1605287845585/work
+PySocks
 python-dateutil==2.8.1
 pytorch-pretrained-bert==0.6.2
-pytz @ file:///tmp/build/80754af9/pytz_1608922264688/work
+pytz
 PyYAML==5.3
-regex @ file:///C:/ci/regex_1606691183008/work
-requests @ file:///tmp/build/80754af9/requests_1608241421344/work
+regex
+requests
 requests-oauthlib==1.3.0
-rsa @ file:///tmp/build/80754af9/rsa_1610483308194/work
+rsa
 s3transfer==0.3.4
-scikit-learn @ file:///C:/ci/scikit-learn_1598377018496/work
-scipy @ file:///C:/ci/scipy_1604596260408/work
+scikit-learn
+scipy
 six==1.14.0
-tensorboard @ file:///home/builder/ktietz/conda/conda-bld/tensorboard_1604313476433/work/tmp_pip_dir
+tensorboard
 tensorboard-plugin-wit==1.6.0
 tensorflow==2.3.0
-tensorflow-estimator @ file:///tmp/build/80754af9/tensorflow-estimator_1599136169057/work/whl_temp/tensorflow_estimator-2.3.0-py2.py3-none-any.whl
+tensorflow-estimator
 termcolor==1.1.0
-threadpoolctl @ file:///tmp/tmp9twdgx9k/threadpoolctl-2.1.0-py3-none-any.whl
+threadpoolctl
 torch==1.7.1
 torchaudio==0.7.2
 torchvision==0.8.2
-tqdm @ file:///tmp/build/80754af9/tqdm_1609788246169/work
-typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1598376058250/work
-urllib3 @ file:///tmp/build/80754af9/urllib3_1606938623459/work
+tqdm
+typing-extensions
+urllib3
 Werkzeug==1.0.1
-win-inet-pton @ file:///C:/ci/win_inet_pton_1605306167264/work
+win-inet-pton
 wincertstore==0.2
 wrapt==1.12.1
-yarl @ file:///C:/ci/yarl_1598045274898/work
-zipp @ file:///tmp/build/80754af9/zipp_1604001098328/work
+yarl
+zipp
