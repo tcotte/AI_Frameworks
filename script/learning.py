@@ -1,21 +1,14 @@
+import argparse
 import time
-import numpy as np
+import cleantext as ct
 import pandas as pd
-import tensorflow as tf
-import io
-import tensorflow as tf
 import torch
+from processing import balance_dataset, tokenize_plus_attention
 from pytorch_pretrained_bert import BertForSequenceClassification, BertAdam
+from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
-from keras.preprocessing.sequence import pad_sequences
-from sklearn.model_selection import train_test_split
-import io
-from sklearn.model_selection import train_test_split
-import cleantext as ct
-from processing import balance_dataset, tokenize_plus_attention
-from training import train, flat_accuracy, predict
-import argparse
+from training import train, predict
 
 # Device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -28,21 +21,19 @@ parser.add_argument('--epochs', type=int, default=2)
 parser.add_argument('--batch_size', type=int, default=16)
 
 parser.add_argument('--data_dir', type=str,
-                    default=DATA_DIR + "Data")
+                    default=DATA_DIR + "data")
 parser.add_argument('--results_dir', type=str,
                     default=DATA_DIR + "results")
 parser.add_argument('--model_dir', type=str,
-                    default=DATA_DIR + "model/")
+                    default=DATA_DIR + "model")
 args = parser.parse_args()
 
 # Load data
 DATA_PATH = args.data_dir
 train_df = pd.read_json(DATA_PATH + "/train.json")
-test_df = pd.read_json(DATA_PATH + "/test.json")
 train_label = pd.read_csv(DATA_PATH + "/train_label.csv")
-categories = pd.read_csv(DATA_PATH + "/categories_string.csv")
 
-# Data processing
+# data processing
 train_df, train_labels = balance_dataset(train_df, train_label)
 
 preprocessor = Pipeline(steps=[
@@ -56,7 +47,8 @@ preprocessor = Pipeline(steps=[
     ('drop_columns', ct.DropColumns(["Id"]))
 ])
 
-train_df = preprocessor.fit_transform(train_df)
+train_df = preprocessor.fit_transform(train_df[:10])
+train_labels = train_labels[:10]
 
 # Train validation split
 train_df, validation_df, train_labels, validation_labels = train_test_split(train_df, train_labels.Category,
@@ -72,7 +64,7 @@ validation_labels = torch.tensor(validation_labels.values)
 train_masks = torch.tensor(train_masks)
 validation_masks = torch.tensor(validation_masks)
 
-# Data Generator
+# data Generator
 train_data = TensorDataset(train_inputs, train_masks, train_labels)
 train_sampler = RandomSampler(train_data)
 train_dataloader = DataLoader(train_data, sampler=train_sampler, batch_size=args.batch_size)
@@ -114,14 +106,15 @@ v_logits, v_labels, eval_acc = predict(model, validation_dataloader, device)
 te = time.time()
 t_predicting = te - ts
 
-
 # Save the fine-tuning model
-torch.save(model.state_dict(), args.model_dir + 'bert_base_balanced')
+args_str = "bert_epochs_%d_batch_size_%d" % (args.epochs, args.batch_size)
+torch.save(model.state_dict(), args.model_dir + "/" + args_str)
 
 # Save the results
 print("Save results")
-d = {'learning_time': t_learning, 'prediction_time': t_predicting, 'loss_train': train_losses[-1], 'accuracy_test' : eval_acc}
+d = {'learning_time': t_learning, 'prediction_time': t_predicting, 'loss_train': train_losses[-1],
+     'accuracy_test': eval_acc}
 results_df = pd.DataFrame(data=d, index=[0])
-results_file = args.results_dir+'/results.csv'
+results_file = args.results_dir + '/results.csv'
 with open(results_file, mode='w') as f:
     results_df.to_csv(f)
