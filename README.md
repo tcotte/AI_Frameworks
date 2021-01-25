@@ -4,7 +4,7 @@
 
 1. Install Google cloud SDK --> follow this link : https://cloud.google.com/sdk/docs/install#deb
 
-2. Connect to your instance installed with a GPU P100 and NVIDIA drivers pre-installed
+2. Connect to your instance installed with a GPU V100 and NVIDIA drivers pre-installed
 
 3. Once connected to the instance, install Anaconda to get Python 3.8.5
 
