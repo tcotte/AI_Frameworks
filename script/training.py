@@ -42,6 +42,7 @@ def train(model, train_dataloader, device, optimizer, epoch):
 
     return train_loss
 
+
 def predict(model, validation_dataloader, device):
     # Put model in evaluation mode to evaluate loss on the validation set
     model.eval()
@@ -63,7 +64,8 @@ def predict(model, validation_dataloader, device):
         # Telling the model not to compute or store gradients, saving memory and speeding up validation
         with torch.no_grad():
             # Forward pass, calculate logit predictions
-            logits = model(torch.tensor(b_input_ids).to(device).long(), token_type_ids=None, attention_mask=b_input_mask)
+            logits = model(torch.tensor(b_input_ids).to(device).long(), token_type_ids=None,
+                           attention_mask=b_input_mask)
 
         # Move logits and labels to CPU
         logits = logits.detach().cpu().numpy()

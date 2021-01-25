@@ -45,7 +45,7 @@ preprocessor = Pipeline(steps=[
     ('drop_columns', ct.DropColumns(["Id"]))
 ])
 
-test_df = preprocessor.fit_transform(df[:10])
+test_df = preprocessor.fit_transform(df)
 
 # import model
 model = BertForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=28)
