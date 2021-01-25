@@ -1,6 +1,6 @@
 from sklearn.base import BaseEstimator, TransformerMixin
 import nltk
-
+nltk.download('stopwords')
 
 class Minuscule(BaseEstimator, TransformerMixin):
     def __init__(self, feature):
