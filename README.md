@@ -1,10 +1,30 @@
 # AI Frameworks
 
+## Virtual machine created
+
+We have instanced a VM with the following caracteristics :
+- Operating system : Ubuntu 20.04
+- Number of processors : 2
+- RAM : 
 ## What do I have to install to be able to reproduce the code?
 
 1. Install Google cloud SDK --> follow this link : https://cloud.google.com/sdk/docs/install#deb
 
-2. Connect to your instance installed with a GPU V100 and NVIDIA drivers pre-installed
+2. Connect to your instance (on Ubuntu 20.04) installed with a GPU V100 and install NVIDIA drivers
+- To connect to the VM
+```
+$ gcloud compute ssh VMNAME
+```
+
+- To install NVIDIA drivers (exemple for Ubuntu 20.04) --> see documentation https://cloud.google.com/compute/docs/gpus/install-drivers-gpu
+```
+$ gcloud compute ssh VMNAMEcurl -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+$ sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+$ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+$ sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+```
+Then update list of packages `sudo apt update` and install cuda `sudo apt install cuda`
+
 
 3. Once connected to the instance, install Anaconda to get Python 3.8.5
 
@@ -18,6 +38,7 @@ $ sudo apt-get install bzip2 libxml2-dev
 ```
 $ wget https://repo.anaconda.com/archive/Anaconda3-2018.12-Linux-x86_64.sh
 ```
+It is not necessary to install VS Code
 
 - Then run the shell script :
 ```
@@ -26,12 +47,18 @@ $ bash Anaconda3–2018.12-Linux-x86_64.sh
 
 - After installation has completed, we can remove the shell script to save disk space.
 ```
-$ bash Anaconda3–2018.12-Linux-x86_64.sh
+$ rm Anaconda3–2018.12-Linux-x86_64.sh
+```
+Pass the conda environment variable to .bashrc file and reinitialize the shell to recognise the conda command.
+```
+$ echo ". /home/{surname}/anaconda3/etc/profile.d/conda.sh" >> ~/.bashrc
+$ export PATH="/home/{surname}/anaconda3/bin:$PATH"
+$ source ~/.bashrc
 ```
 
 4. Since Anaconda is installed, we can create an anaconda virtual environment with Python 3.8.5 :
 ```
-$ conda create -n AIF python=3.8.5
+$ ./anaconda3/bin/conda create -n AIF python=3.8.5
 ```
 
 And activate this environment :
@@ -49,11 +76,10 @@ When you are in the environment, you will see the environment name in the termin
 $ git clone https://github.com/tcotte/AI_Frameworks.git
 ```
 
-6. Then, move in our project and create "*results*" and "*model*" directories. This directories will able us to save
-our futur model and our results later.
+6. Then, move in our project and create "*model*" directory. This directory will able us to save
+our futur model later.
 ```
 $ cd AI_Frameworks
-$ mkdir results
 $ mkdir model
 ```
 
@@ -63,6 +89,13 @@ this project.
 $ pip install -r requirements.txt
 ```
 Libraries required are in your virtual environment, you can check this with `pip freeze` command. 
+
+8. Unzip the "*data.zip*" folder to data/ following this command lines :
+```
+$ sudo apt-get install unzip
+$ unzip data.zip -d data/
+$ rm data.zip
+``` 
 
 8. You can train your model thanks to the command line : 
 ```
