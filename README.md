@@ -18,7 +18,7 @@ $ gcloud compute ssh VMNAME
 
 - To install NVIDIA drivers (exemple for Ubuntu 20.04) --> see documentation https://cloud.google.com/compute/docs/gpus/install-drivers-gpu
 ```
-$ gcloud compute ssh VMNAMEcurl -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+$ curl -O https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
 $ sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
 $ sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
 $ sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
