@@ -4,3 +4,4 @@ notebook-bert-checkpoint(5)-Copy1.ipynb
 __pycache__/
 data/
 model/bert_base_balanced
+model/bert_epochs_2_batch_size_16

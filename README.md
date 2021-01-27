@@ -58,7 +58,7 @@ $ source ~/.bashrc
 
 4. Since Anaconda is installed, we can create an anaconda virtual environment with Python 3.8.5 :
 ```
-$ ./anaconda3/bin/conda create -n AIF python=3.8.5
+$ conda create -n AIF python=3.8.5
 ```
 
 And activate this environment :

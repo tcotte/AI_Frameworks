@@ -1,6 +1,8 @@
 from sklearn.base import BaseEstimator, TransformerMixin
 import nltk
+
 nltk.download('stopwords')
+
 
 class Minuscule(BaseEstimator, TransformerMixin):
     def __init__(self, feature):
@@ -110,7 +112,7 @@ class RemovePonctuationBert(BaseEstimator, TransformerMixin):
 
 
 # on enlève le dernier "." car on rajoute un [SEP] tout à la fin
-# TODO if "." précédé d'une seule lettre c'est une abréviation et une une fin de phrase
+# if "." précédé d'une seule lettre c'est une abréviation et une une fin de phrase
 
 class SentenceBert(BaseEstimator, TransformerMixin):
     def __init__(self, feature):
@@ -120,8 +122,6 @@ class SentenceBert(BaseEstimator, TransformerMixin):
         return self
 
     def transform(self, X, y=None):
-        # X[self._feature] = X[self._feature].str[:-1].where(X[self._feature].str[-1:]==".")
-        # X[self._feature] = X[self._feature].str[:-1]
         X[self._feature] = X[self._feature].str.replace('[.]', ' [SEP] ', regex=True)
         X[self._feature] = '[CLS] ' + X[self._feature]
         return X

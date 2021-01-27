@@ -4,6 +4,7 @@ import torch
 
 # Training
 def train(model, train_dataloader, device, optimizer, epoch):
+    print("<=========== EPOCH " + str(epoch + 1) + " ===========>")
     # Set our model to training mode (as opposed to evaluation mode)
     model.train()
 
@@ -20,9 +21,11 @@ def train(model, train_dataloader, device, optimizer, epoch):
         # Clear out the gradients (by default they accumulate)
         optimizer.zero_grad()
         # Forward pass
-        loss = model(torch.tensor(b_input_ids).to(device).long(), token_type_ids=None, attention_mask=b_input_mask,
-                     labels=b_labels)
-        # train_loss_set.append(loss.item())
+        if torch.cuda.is_available():
+            loss = model(b_input_ids, token_type_ids=None, attention_mask=b_input_mask, labels=b_labels)
+        else:
+            loss = model(torch.tensor(b_input_ids).to(device).long(), token_type_ids=None, attention_mask=b_input_mask,
+                         labels=b_labels)
         # Backward pass
         loss.backward()
         # Update parameters and take a step using the computed gradient
@@ -38,7 +41,7 @@ def train(model, train_dataloader, device, optimizer, epoch):
 
         # Display
         if nb_tr_steps % 30 == 1:
-            print('Epoch: {} \tTraining Loss: {:.6f}'.format(epoch, train_loss))
+            print('\r Epoch: {} \tTraining Loss: {:.6f}'.format(epoch, train_loss))
 
     return train_loss
 

@@ -47,10 +47,13 @@ preprocessor = Pipeline(steps=[
 
 test_df = preprocessor.fit_transform(df)
 
+
 # import model
 model = BertForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=28)
 args_str = "bert_epochs_%d_batch_size_%d" %(args.epochs, args.batch_size)
-model.load_state_dict(torch.load(args.model_dir +"/"+ args_str))
+model.load_state_dict(torch.load(args.model_dir + "/" + args_str))
+# Send the model into device
+model.to(device)
 
 
 # Bert tokenization

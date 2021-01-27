@@ -48,7 +48,6 @@ preprocessor = Pipeline(steps=[
 ])
 
 train_df = preprocessor.fit_transform(train_df)
-
 # Train validation split
 train_df, validation_df, train_labels, validation_labels = train_test_split(train_df, train_labels.Category,
                                                                             random_state=2018, test_size=0.1)
@@ -74,6 +73,8 @@ validation_dataloader = DataLoader(validation_data, sampler=validation_sampler, 
 
 # Model definition
 model = BertForSequenceClassification.from_pretrained("bert-base-uncased", num_labels=28)
+# Send the model into device
+model.to(device)
 
 param_optimizer = list(model.named_parameters())
 no_decay = ['bias', 'gamma', 'beta']
