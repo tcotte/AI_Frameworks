@@ -41,13 +41,14 @@ preprocessor = Pipeline(steps=[
     ('url', ct.RemoveURL("description")),
     ('html', ct.RemoveHTML("description")),
     ('rm_ponctutation', ct.RemovePonctuationBert("description")),  # we keep the "." and the figures
-    ('tokens', ct.Tokens(feature="description", stemming=False)),
+    ('tokens', ct.TokensBert(feature="description", stemming=False)),
     ('lit', ct.ListIntoSentence("description")),
     ('bert', ct.SentenceBert("description")),  # we add CLS and SEP
     ('drop_columns', ct.DropColumns(["Id"]))
 ])
 
 train_df = preprocessor.fit_transform(train_df)
+
 # Train validation split
 train_df, validation_df, train_labels, validation_labels = train_test_split(train_df, train_labels.Category,
                                                                             random_state=2018, test_size=0.1)

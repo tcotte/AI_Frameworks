@@ -111,6 +111,26 @@ class RemovePonctuationBert(BaseEstimator, TransformerMixin):
         return X
 
 
+class TokensBert(BaseEstimator, TransformerMixin):
+    def __init__(self, feature, stemming=True):
+        self._feature = feature
+        self._stemmer = nltk.stem.SnowballStemmer('english')
+        self._stemming = stemming
+
+    def fit(self, X, y=None):
+        return self
+
+
+    def stem(self, row):
+        stem_words = [self._stemmer.stem(token) for token in row[self._feature]]
+        return stem_words
+
+    def transform(self, X, y=None):
+        X[self._feature] = X[self._feature].str.split()
+        #X[self._feature] = X.apply(self.remove_stops, axis=1)
+        return X
+
+
 # on enlève le dernier "." car on rajoute un [SEP] tout à la fin
 # if "." précédé d'une seule lettre c'est une abréviation et une une fin de phrase
 

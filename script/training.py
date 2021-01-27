@@ -41,7 +41,7 @@ def train(model, train_dataloader, device, optimizer, epoch):
 
         # Display
         if nb_tr_steps % 30 == 1:
-            print('\r Epoch: {} \tTraining Loss: {:.6f}'.format(epoch, train_loss))
+            print('\r Epoch: {} \tTraining Loss: {:.6f}'.format(str(epoch+1), train_loss))
 
     return train_loss
 

@@ -39,7 +39,7 @@ preprocessor = Pipeline(steps=[
     ('url', ct.RemoveURL("description")),
     ('html', ct.RemoveHTML("description")),
     ('rm_ponctutation', ct.RemovePonctuationBert("description")),  # we keep the "." and the figures
-    ('tokens', ct.Tokens(feature="description", stemming=False)),
+    ('tokens', ct.TokensBert(feature="description", stemming=False)),
     ('lit', ct.ListIntoSentence("description")),
     ('bert', ct.SentenceBert("description")),  # we add CLS and SEP
     ('drop_columns', ct.DropColumns(["Id"]))
