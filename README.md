@@ -1,4 +1,4 @@
-# AI Frameworks ## <a href="http://www.insa-toulouse.fr/" ><img src="http://www.math.univ-toulouse.fr/~besse/Wikistat/Images/Logo_INSAvilletoulouse-RVB.png" style="float:right; max-width: 40px; display: inline" alt="INSA"/> |
+# AI Frameworks <a href="http://www.insa-toulouse.fr/" ><img src="http://www.math.univ-toulouse.fr/~besse/Wikistat/Images/Logo_INSAvilletoulouse-RVB.png" style="float:left; max-width: 40px; display: inline" alt="INSA"/>
 ---
 ## Which result you achieved? In which computation time? On which engine?
 ---
