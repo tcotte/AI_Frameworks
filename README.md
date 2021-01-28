@@ -1,7 +1,7 @@
 # AI Frameworks
-
+---
 ## Which result you achieved? In which computation time? On which engine?
-
+---
 ### Engine
 
 We have instanced a VM in Google Cloud Platform with the following caracteristics :
@@ -24,7 +24,7 @@ Learn and predict spend time :
 - Prediction time (for the validation public set) : 00:02
 
 ## What do I have to install to be able to reproduce the code?
-
+---
 To be able to reproduce the code, you have to :
 - Install Google Cloud SDK if you want to run this code on Google Cloud Platform.
 - Install NVIDIA drivers in order to use the NVIDIA GPUS.
@@ -34,7 +34,7 @@ To be able to reproduce the code, you have to :
 We detail this commands in the next chapter.
 
 ## Which command do I have to run to reproduce the results?
-
+---
 1. Install Google cloud SDK --> follow this link : https://cloud.google.com/sdk/docs/install#deb
 
 2. Connect to your instance (on Ubuntu 20.04) installed with a GPU V100 and install NVIDIA drivers
