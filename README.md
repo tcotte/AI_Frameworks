@@ -1,7 +1,8 @@
+<a href="http://www.insa-toulouse.fr/" ><img src="http://www.math.univ-toulouse.fr/~besse/Wikistat/Images/Logo_INSAvilletoulouse-RVB.png" style="text-align:right; float:left; max-width: 40px;margin:0px auto 0px auto; display: inline" alt="INSA"/> <br>
 # AI Frameworks
-
+---
 ## Which result you achieved? In which computation time? On which engine?
-
+---
 ### Engine
 
 We have instanced a VM in Google Cloud Platform with the following caracteristics :
@@ -13,18 +14,18 @@ We have instanced a VM in Google Cloud Platform with the following caracteristic
 
 ### Results
 
-Thanks to the engine rent to Google Cloud we achieve this performances :
+Thanks to the Google Cloud engine we achieve these performances :
 - Loss on public train set : 0.368
-- Accuracy on validation public set (10% of train set) : 0.874
+- Accuracy on validation set (10% of train set) : 0.874
 - **f1 score on public test set : 0.799**
-- **f1 score on public test set : 0.805** (without post processing improvements)
+- **f1 score on private test set : 0.805** (without post processing improvements)
 
 Learn and predict spend time : 
 - Learning time (for 2 epochs with batch size of 16) : 02:54
 - Prediction time (for the validation public set) : 00:02
 
 ## What do I have to install to be able to reproduce the code?
-
+---
 To be able to reproduce the code, you have to :
 - Install Google Cloud SDK if you want to run this code on Google Cloud Platform.
 - Install NVIDIA drivers in order to use the NVIDIA GPUS.
@@ -34,7 +35,7 @@ To be able to reproduce the code, you have to :
 We detail this commands in the next chapter.
 
 ## Which command do I have to run to reproduce the results?
-
+---
 1. Install Google cloud SDK --> follow this link : https://cloud.google.com/sdk/docs/install#deb
 
 2. Connect to your instance (on Ubuntu 20.04) installed with a GPU V100 and install NVIDIA drivers
@@ -72,7 +73,7 @@ It is not necessary to install VS Code
 $ bash Anaconda3–2018.12-Linux-x86_64.sh
 ```
 
-- After installation has completed, we can remove the shell script to save disk space.
+- After installation completed, we can remove the shell script to save disk space.
 ```
 $ rm Anaconda3–2018.12-Linux-x86_64.sh
 ```
