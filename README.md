@@ -1,12 +1,39 @@
 # AI Frameworks
 
-## Virtual machine created
+## Which result you achieved? In which computation time? On which engine?
 
-We have instanced a VM with the following caracteristics :
+### Engine
+
+We have instanced a VM in Google Cloud Platform with the following caracteristics :
 - Operating system : Ubuntu 20.04
-- Number of processors : 2
-- RAM : 
+- Serie : N1
+- Number of virtual processors : 8
+- RAM : 30Go
+- GPU type : NVIDIA Tesla V100
+
+### Results
+
+Thanks to the engine rent to Google Cloud we achieve this performances :
+- Loss on public train set : 0.368
+- Accuracy on validation public set (10% of train set) : 0.874
+- **f1 score on public test set : 0.799**
+- **f1 score on public test set : 0.805** (without post processing improvements)
+
+Learn and predict spend time : 
+- Learning time (for 2 epochs with batch size of 16) : 02:54
+- Prediction time (for the validation public set) : 00:02
+
 ## What do I have to install to be able to reproduce the code?
+
+To be able to reproduce the code, you have to :
+- Install Google Cloud SDK if you want to run this code on Google Cloud Platform.
+- Install NVIDIA drivers in order to use the NVIDIA GPUS.
+- Install Anaconda3 in order to get Python 3.8.5.
+- Clone our github repository - https://github.com/tcotte/AI_Frameworks.git - to retrieve our code. 
+
+We detail this commands in the next chapter.
+
+## Which command do I have to run to reproduce the results?
 
 1. Install Google cloud SDK --> follow this link : https://cloud.google.com/sdk/docs/install#deb
 
