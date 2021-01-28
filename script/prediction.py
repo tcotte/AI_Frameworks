@@ -6,11 +6,10 @@ from processing import tokenize_plus_attention
 from pytorch_pretrained_bert import BertForSequenceClassification
 from training import predict
 import numpy as np
-
-# Device
 from sklearn.pipeline import Pipeline
 from torch.utils.data import TensorDataset, SequentialSampler, DataLoader
 
+# Device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
 
