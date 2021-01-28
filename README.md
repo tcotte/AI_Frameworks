@@ -10,7 +10,7 @@ We have instanced a VM in Google Cloud Platform with the following caracteristic
 - Operating system : Ubuntu 20.04
 - Serie : N1
 - Number of virtual processors : 8
-- RAM : 30Go
+- RAM : 30 Go
 - GPU type : NVIDIA Tesla V100
 - Hard drive : SSD
 
@@ -23,7 +23,7 @@ Thanks to the Google Cloud engine we achieve these performances :
 - **f1 score on private test set : 0.805** (without post processing improvements)
 
 Learn and predict spend time : 
-- Learning time (for 2 epochs with batch size of 16) : 01:04
+- Learning time (for 2 epochs with batch size of 32) : 01:04
 - Prediction time (for the validation public set) : 00:01
 
 ## What do I have to install to be able to reproduce the code?
@@ -133,7 +133,7 @@ $ rm data.zip
 $ python script/learning.py
 ```
 Python script "*learning.py*" uses argument parser. The previous command implied hard-coded arguments by default (epcohs --> 2 and
-batch_size --> 16).
+batch_size --> 32).
 In fact, you can change the number of epochs, the batch size and directories where data, results and model are located. 
 If you followed this tutorial, change the location of directories is not advised. 
 

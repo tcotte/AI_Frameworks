@@ -1,5 +1,6 @@
 from sklearn.base import BaseEstimator, TransformerMixin
 import nltk
+from nltk.corpus import stopwords
 
 nltk.download('stopwords')
 
@@ -56,9 +57,6 @@ class RemovePonctuation(BaseEstimator, TransformerMixin):
 
 
 # Transform in list of tokens
-from nltk.corpus import stopwords
-
-
 class Tokens(BaseEstimator, TransformerMixin):
     def __init__(self, feature, stemming=True):
         self._feature = feature
@@ -120,19 +118,14 @@ class TokensBert(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         return self
 
-
     def stem(self, row):
         stem_words = [self._stemmer.stem(token) for token in row[self._feature]]
         return stem_words
 
     def transform(self, X, y=None):
         X[self._feature] = X[self._feature].str.split()
-        #X[self._feature] = X.apply(self.remove_stops, axis=1)
         return X
 
-
-# on enlève le dernier "." car on rajoute un [SEP] tout à la fin
-# if "." précédé d'une seule lettre c'est une abréviation et une une fin de phrase
 
 class SentenceBert(BaseEstimator, TransformerMixin):
     def __init__(self, feature):

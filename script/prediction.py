@@ -16,7 +16,7 @@ print(device)
 # Argument
 parser = argparse.ArgumentParser()
 parser.add_argument('--epochs', type=int, default=2)
-parser.add_argument('--batch_size', type=int, default=16)
+parser.add_argument('--batch_size', type=int, default=32)
 
 DATA_DIR = ""
 parser.add_argument('--data_dir', type=str,
