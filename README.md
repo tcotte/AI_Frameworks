@@ -1,4 +1,4 @@
- <a href="http://www.insa-toulouse.fr/" ><img src="http://www.math.univ-toulouse.fr/~besse/Wikistat/Images/Logo_INSAvilletoulouse-RVB.png" style="text-align:right; float:left; max-width: 40px;margin:0px auto 0px auto; display: inline" alt="INSA"/> <br>
+<img src="http://www.math.univ-toulouse.fr/~besse/Wikistat/Images/Logo_INSAvilletoulouse-RVB.png" style="text-align:right; float:left; max-width: 40px;margin:0px auto 0px auto; display: inline" alt="INSA"/> <br>
 
 # AI Frameworks
 ---
