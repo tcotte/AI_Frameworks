@@ -27,6 +27,7 @@ Learn and predict spend time :
 
 ## What do I have to install to be able to reproduce the code?
 ---
+
 To be able to reproduce the code, you have to :
 - Install Google Cloud SDK if you want to run this code on Google Cloud Platform.
 - Install NVIDIA drivers in order to use the NVIDIA GPUS.
