@@ -12,18 +12,19 @@ We have instanced a VM in Google Cloud Platform with the following caracteristic
 - Number of virtual processors : 8
 - RAM : 30Go
 - GPU type : NVIDIA Tesla V100
+- Hard drive : SSD
 
 ### Results
 
 Thanks to the Google Cloud engine we achieve these performances :
-- Loss on public train set : 0.368
-- Accuracy on validation set (10% of train set) : 0.874
+- Loss on public train set : 0.372
+- Accuracy on validation set (10% of train set) : 0.873
 - **f1 score on public test set : 0.799**
 - **f1 score on private test set : 0.805** (without post processing improvements)
 
 Learn and predict spend time : 
-- Learning time (for 2 epochs with batch size of 16) : 02:54
-- Prediction time (for the validation public set) : 00:02
+- Learning time (for 2 epochs with batch size of 16) : 01:04
+- Prediction time (for the validation public set) : 00:01
 
 ## What do I have to install to be able to reproduce the code?
 ---
