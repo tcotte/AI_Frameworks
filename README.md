@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <a href="http://www.insa-toulouse.fr/" ><img src="http://www.math.univ-toulouse.fr/~besse/Wikistat/Images/Logo_INSAvilletoulouse-RVB.png" style="text-align:right; float:left; max-width: 40px;margin:0px auto 0px auto; display: inline" alt="INSA"/> <br>
+=======
+ <a href="http://www.insa-toulouse.fr/" ><img src="http://www.math.univ-toulouse.fr/~besse/Wikistat/Images/Logo_INSAvilletoulouse-RVB.png" style="text-align:right; float:left; max-width: 40px;margin:0px auto 0px auto; display: inline" alt="INSA"/> <br>
+>>>>>>> 91a1b730bffde6db5c719bb8a727dcadb70c9c12
 # AI Frameworks
 ---
 ## Which result you achieved? In which computation time? On which engine?
